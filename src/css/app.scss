@@ -1,0 +1,171 @@
+// Global variables, carefully chosen for a modern and vibrant design
+$primary-color: #0c89dc;  // Fresh green, symbolizing growth and positivity
+$secondary-color: #1976d2;  // A calm, cool blue for contrast
+$font-family-base: 'Roboto', Arial, sans-serif;  // Clean, modern sans-serif font
+
+// Global reset for a consistent and smooth layout across all browsers
+* {
+  box-sizing: border-box;  // Ensures elements are well-sized, no matter the context
+  margin: 0;  // Eliminate unexpected spacing
+  padding: 0;  // Remove extra padding
+}
+
+body {
+  font-family: $font-family-base;  // Using a sleek, contemporary font
+  background-color: #f4f4f4;  // Light, neutral background that doesn’t distract
+  color: #333;  // Soft, dark text for easy readability
+  line-height: 1.6;  // Better line spacing for a more com$primary-color: #4caf50;
+  $secondary-color: #1976d2;
+  $font-family-base: 'Roboto', Arial, sans-serif;
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: $font-family-base;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .q-header {
+    background-color: $primary-color;
+    padding: 15px 20px;
+  }
+  
+  .navbar-img {
+    margin: 5px;
+    max-width: 100px;
+  }
+  
+  .login-btn {
+    width: 100%;
+    margin-top: 20px;
+    background-color: $secondary-color;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .text-h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .text-grey {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .q-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #fafafa;
+  }
+  
+  .q-input {
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+  
+  .q-input__control {
+    border: 1px solid #ccc;
+  }
+  
+  .q-input__control:focus {
+    border-color: $primary-color;
+  }
+  
+  .q-icon {
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .q-icon:hover {
+    color: $primary-color;
+  }
+
+}
+
+.q-header {
+  background-color: $primary-color;  // Stunning primary color for the header
+  padding: 15px 20px;  // Comfortable padding to ensure the header isn't too crowded
+}
+
+.navbar-img {
+  margin: 5px;  // Subtle margin for the logo to breathe and feel centered
+  max-width: 100px;  // Ensuring the logo doesn’t become too large, maintaining balance
+}
+
+.login-btn {
+  width: 100%;  // Full width for the login button, making it bold and accessible
+  margin-top: 20px;  // Gently spaced top margin to allow room for the button
+  background-color: $secondary-color;  // A contrasting, calming blue
+  border: none;  // Clean, modern flat button style
+  color: white;  // White text for a crisp, clear contrast
+  font-size: 1.2rem;  // Slightly larger font for easy readability
+  padding: 12px 20px;  // Spacious padding, making the button feel more clickable
+  cursor: pointer;  // Makes the button feel interactive
+  transition: all 0.3s ease-in-out;  // Smooth hover transition for an engaging experience
+  
+//   &:hover {
+//     background-color: darken($secondary-color, 10%);  // Slightly darken the button on hover
+//     transform: scale(1.05);  // Slightly enlarge the button for a nice interactive feel
+//   }
+}
+
+.text-h3 {
+  font-size: 2rem;  // Large enough for prominent headlines, but still elegant
+  font-weight: 500;  // A bit of boldness to give the title more presence
+  color: #333;  // Keeping the title text dark for strong contrast
+  margin-bottom: 8px;  // Small margin below the title for separation
+}
+
+.text-grey {
+  color: #888;  // Subtle grey for text that shouldn't steal attention
+  font-size: 1rem;  // Smaller size for secondary text, keeping it gentle and unobtrusive
+  margin-bottom: 20px;  // Generous bottom margin to space it away from elements below
+}
+
+.q-page {
+  display: flex;
+  justify-content: center;  // Horizontally centers content for a balanced layout
+  align-items: center;  // Vertically centers content, making the page feel balanced
+  height: 100vh;  // Full viewport height for a clean, immersive experience
+  padding: 20px;  // Padding around the page for a comfortable, airy feel
+  background-color: #fafafa;  // A softer background shade to be gentle on the eyes
+}
+
+.q-input {
+  margin-bottom: 15px;  // Comfortable spacing between input fields
+  border-radius: 4px;  // Soft, rounded corners for input fields
+}
+
+.q-input__control {
+  border: 1px solid #ccc;  // Light border for input fields, subtle and modern
+}
+
+.q-input__control:focus {
+  border-color: $primary-color;  // Highlight the input fields with the primary color when focused
+}
+
+.q-icon {
+  color: #333;  // Neutral icon color to maintain balance
+  transition: color 0.3s ease;  // Smooth color transition on icon hover
+}
+
+.q-icon:hover {
+  color: $primary-color;  // Change icon color to match the primary color on hover
+}
