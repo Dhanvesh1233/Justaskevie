@@ -1,20 +1,19 @@
-// Global variables, carefully chosen for a modern and vibrant design
-$primary-color: #0c89dc;  // Fresh green, symbolizing growth and positivity
-$secondary-color: #1976d2;  // A calm, cool blue for contrast
-$font-family-base: 'Roboto', Arial, sans-serif;  // Clean, modern sans-serif font
 
-// Global reset for a consistent and smooth layout across all browsers
+$primary-color: #0c89dc;  
+$secondary-color: #1976d2; 
+$font-family-base: 'Roboto', Arial, sans-serif; 
+
 * {
-  box-sizing: border-box;  // Ensures elements are well-sized, no matter the context
-  margin: 0;  // Eliminate unexpected spacing
-  padding: 0;  // Remove extra padding
+  box-sizing: border-box;  
+  margin: 0;  
+  padding: 0;  
 }
 
 body {
-  font-family: $font-family-base;  // Using a sleek, contemporary font
-  background-color: #f4f4f4;  // Light, neutral background that doesn’t distract
-  color: #333;  // Soft, dark text for easy readability
-  line-height: 1.6;  // Better line spacing for a more com$primary-color: #4caf50;
+  font-family: $font-family-base;  
+  background-color: #f4f4f4;  
+  color: #333;  
+  line-height: 1.6; 
   $secondary-color: #1976d2;
   $font-family-base: 'Roboto', Arial, sans-serif;
   
@@ -100,30 +99,30 @@ body {
 }
 
 .q-header {
-  background-color: $primary-color;  // Stunning primary color for the header
-  padding: 15px 20px;  // Comfortable padding to ensure the header isn't too crowded
+  background-color: $primary-color;  
+  padding: 15px 20px; 
 }
 
 .navbar-img {
-  margin: 5px;  // Subtle margin for the logo to breathe and feel centered
-  max-width: 100px;  // Ensuring the logo doesn’t become too large, maintaining balance
+  margin: 5px; 
+  max-width: 100px; 
 }
 
 .login-btn {
-  width: 100%;  // Full width for the login button, making it bold and accessible
-  margin-top: 20px;  // Gently spaced top margin to allow room for the button
-  background-color: $secondary-color;  // A contrasting, calming blue
-  border: none;  // Clean, modern flat button style
-  color: white;  // White text for a crisp, clear contrast
-  font-size: 1.2rem;  // Slightly larger font for easy readability
-  padding: 12px 20px;  // Spacious padding, making the button feel more clickable
-  cursor: pointer;  // Makes the button feel interactive
-  transition: all 0.3s ease-in-out;  // Smooth hover transition for an engaging experience
+  width: 100%;  
+  margin-top: 20px; 
+  background-color: $secondary-color;
+  border: none;  
+  color: white;  
+  font-size: 1.2rem;  
+  padding: 12px 20px;  
+  cursor: pointer;  
+  transition: all 0.3s ease-in-out;  
   
-//   &:hover {
-//     background-color: darken($secondary-color, 10%);  // Slightly darken the button on hover
-//     transform: scale(1.05);  // Slightly enlarge the button for a nice interactive feel
-//   }
+  &:hover {
+    background-color: darken($secondary-color, 10%);  // Slightly darken the button on hover
+    transform: scale(1.05);  // Slightly enlarge the button for a nice interactive feel
+  }
 }
 
 .text-h3 {
@@ -169,3 +168,9 @@ body {
 .q-icon:hover {
   color: $primary-color;  // Change icon color to match the primary color on hover
 }
+
+// @media (min-width: 768px) {
+//   p {
+//     font-size: 24px;
+//   }
+// }
