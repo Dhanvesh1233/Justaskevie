@@ -4,6 +4,9 @@
 importScripts('https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-compat.js');
 
+// Initialize the Firebase app in the service worker by passing in
+// your app's Firebase config object.
+// https://firebase.google.com/docs/web/setup#config-object
 firebase.initializeApp({
   apiKey: "AIzaSyBVcTZi_VD_jQZYfRmuBEiWdTYmIiIlrr0",
   authDomain: "justaskevie-e611a.firebaseapp.com",

@@ -32,12 +32,16 @@ body {
   
   .q-header {
     background-color: $primary-color;
-    padding: 15px 20px;
+    padding: 3px;
   }
   
   .navbar-img {
     margin: 5px;
     max-width: 100px;
+  }
+  .image{
+    height:70px;
+    max-width:200px;
   }
   
   .login-btn {
@@ -119,10 +123,10 @@ body {
   cursor: pointer;  
   transition: all 0.3s ease-in-out;  
   
-  &:hover {
-    background-color: darken($secondary-color, 10%);  // Slightly darken the button on hover
-    transform: scale(1.05);  // Slightly enlarge the button for a nice interactive feel
-  }
+  // &:hover {
+  //   background-color: darken($secondary-color, 10%);  // Slightly darken the button on hover
+  //   transform: scale(1.05);  // Slightly enlarge the button for a nice interactive feel
+  // }
 }
 
 .text-h3 {

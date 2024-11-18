@@ -41,9 +41,18 @@
 
     <q-page class="flex flex-center">
       <div class="col-12 col-md-4 col-lg-4 q-pa-md login-container">
-        <q-img src="~/src/assets/logo.png.jpg" class="q-mt-lg"></q-img>
+        <q-img src="~/src/assets/logo.png.jpg" class="q-mt-lg image "></q-img>
         <div class="text-h3 q-mb-xs">Blogging Page</div>
         <div class="text-grey q-mb-md">Please login into your account</div>
+
+        <!-- Login Type Selector -->
+        <q-select
+          filled
+          v-model="loginType"
+          :options="loginOptions"
+          label="Select Login Type"
+          class="q-mb-md"
+        />
 
         <div class="column">
           <q-input
@@ -100,6 +109,12 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const dialogVisible = ref(false);
+
+const loginType = ref('');  // Default login type set to 'user'
+const loginOptions = [
+  { label: 'User Login', value: 'user' },
+  { label: 'Admin Login', value: 'admin' },
+];
 
 const form = ref({
   email: {
@@ -161,6 +176,12 @@ const submitLogin = () => {
     return;
   }
 
-  router.push('/home');
+  if (loginType.value === 'admin') {
+    // If admin login
+    router.push('/admin-dashboard');  // Redirect to admin dashboard or any admin page
+  } else {
+    // If user login
+    router.push('/home');  // Redirect to user home page
+  }
 };
 </script>
