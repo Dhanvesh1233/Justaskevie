@@ -2,22 +2,22 @@
   <q-layout>
     <q-header elevated>
       <q-toolbar>
-        <q-toolbar-title>
+        <q-toolbar-title> /* title and logo of page */
           <q-img src="~/src/assets/logo.png.jpg" class="navbar-img q-mt-xs" />
-          Blogging Page
+          Blogging Page 
         </q-toolbar-title>
-        
+
+          /* Dialog button for Settings */
         <q-btn flat icon="more_vert" @click="dialogVisible = true" />
         
-        <!-- Dialog for navigation options -->
-        <q-dialog v-model="dialogVisible" persistent>
+         <q-dialog v-model="dialogVisible" persistent>
           <q-card>
             <q-card-section>
-              <div class="text-h6">Settings</div>
+              <div class="text-h6">Settings</div> /*dialog header */
             </q-card-section>
 
             <q-list bordered>
-              <q-item clickable v-ripple to="/" @click="dialogVisible = false">
+              <q-item clickable v-ripple to="/" @click="dialogVisible = false"> /*navigation list items */
                 <q-item-section>Home</q-item-section>
               </q-item>
               <q-item clickable v-ripple to="/about" @click="dialogVisible = false">
@@ -31,21 +31,21 @@
               </q-item>
             </q-list>
 
-            <q-card-actions align="right">
+            <q-card-actions align="right"> /*close button for dialog */
               <q-btn flat label="Close" color="primary" v-close-popup />
             </q-card-actions>
           </q-card>
         </q-dialog>
       </q-toolbar>
     </q-header>
-
+/*main page content */
     <q-page class="flex flex-center">
       <div class="col-12 col-md-4 col-lg-4 q-pa-md login-container">
-        <q-img src="~/src/assets/logo.png.jpg" class="q-mt-lg image "></q-img>
-        <div class="text-h3 q-mb-xs">Blogging Page</div>
+        <q-img src="~/src/assets/logo.png.jpg" class="q-mt-lg image "></q-img>  /*logo img */
+        <div class="text-h3 q-mb-xs">Blogging Page</div> /*page title */
         <div class="text-grey q-mb-md">Please login into your account</div>
 
-        <!-- Login Type Selector -->
+        /* Login Type Selector (user or admin) */
         <q-select
           filled
           v-model="loginType"
@@ -54,7 +54,7 @@
           class="q-mb-md"
         />
 
-        <div class="column">
+        <div class="column"> /*email input field */
           <q-input
             outline
             label="Enter email*"
@@ -67,10 +67,10 @@
               <q-icon name="mail" />
             </template>
           </q-input>
-
-          <q-input 
-            outline
-            label="Enter password*"
+/*password input field*/
+          <q-input
+            outline 
+            label="Enter password*"      
             v-model="form.password.value"
             :error="form.password.error"
             :error-message="form.password.msg"
@@ -81,6 +81,7 @@
               <q-icon name="lock" />
             </template>
             <template v-slot:append>
+              /*password toggle visibility icon */
               <q-icon 
                 :name="showPassword ? 'visibility' : 'visibility_off'" 
                 @click="togglePasswordVisibility" 
@@ -88,7 +89,7 @@
             </template>
           </q-input>
         </div>
-
+/*login button */
         <div class="column q-mt-md">
           <q-btn
             color="indigo"
@@ -104,18 +105,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref } from 'vue';/* for reactivity */
+import { useRouter } from 'vue-router'; /* importing useRouter for navigation */
 
 const router = useRouter();
-const dialogVisible = ref(false);
+const dialogVisible = ref(false); /*dialog visibility state */
 
-const loginType = ref('');  // Default login type set to 'user'
+const loginType = ref('');  /* Default login type set to empty */
 const loginOptions = [
   { label: 'User Login', value: 'user' },
   { label: 'Admin Login', value: 'admin' },
 ];
-
+/*form fields for mail and password including error handling */
 const form = ref({
   email: {
     value: '',
@@ -130,17 +131,20 @@ const form = ref({
     required: true,
   },
 });
-
+/*reactive state for toggling password */
 const showPassword = ref(false);
 
+/*Toggle the visibility of the password input field */
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
 };
 
+/*Function to validate email format using regex */
 const validateEmail = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const email = form.value.email.value;
 
+/*Check if the email is empty or does not match the pattern */
   if (!email) {
     form.value.email.error = true;
     form.value.email.msg = 'Email is required';
@@ -152,10 +156,11 @@ const validateEmail = () => {
     form.value.email.msg = '';
   }
 };
-
+/*checking password length */
 const validatePassword = () => {
   const password = form.value.password.value;
 
+/*empty or shorter than 6 characters */
   if (!password) {
     form.value.password.error = true;
     form.value.password.msg = 'Password is required';
@@ -168,6 +173,7 @@ const validatePassword = () => {
   }
 };
 
+/*Function to handle form submission and redirect based on login type */
 const submitLogin = () => {
   validateEmail();
   validatePassword();
@@ -177,11 +183,11 @@ const submitLogin = () => {
   }
 
   if (loginType.value === 'admin') {
-    // If admin login
-    router.push('/admin-dashboard');  // Redirect to admin dashboard or any admin page
+    
+    router.push('/admin-dashboard');  /* if admin login*/
   } else {
-    // If user login
-    router.push('/home');  // Redirect to user home page
+    
+    router.push('/home');  /* if user login*/
   }
 };
 </script>
