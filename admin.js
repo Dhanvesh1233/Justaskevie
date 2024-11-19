@@ -10,14 +10,14 @@ const registrationToken = 'd23L5LXxWV-YO0DwlmIfKV:APA91bGlH3PiEqvvUfARUtbK67LBjU
 
 const message = {
     notification:{
-        title: "I am admin",
+        title: "Justaskevie",
         body: "Hi client"
     },
-    webpush:{
-        fcmOptions:{
-            link: '/?breakingnews'
-        }
-    },
+    // webpush:{
+    //     fcmOptions:{
+    //         link: '/?breakingnews'
+    //     }
+    // },
   token: registrationToken
 };
 

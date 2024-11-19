@@ -17,14 +17,20 @@ firebase.initializeApp({
   measurementId: "G-PWC7JL28KS"
 });
 
-
 const messaging = firebase.messaging();
 
+// Variable to track if a notification is already shown
+let isNotificationVisible = false;
 
 messaging.onBackgroundMessage((payload) => {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
 
- 
+  // Avoid showing the same notification multiple times
+  if (isNotificationVisible) {
+    console.log('Notification already displayed, ignoring new push');
+    return;
+  }
+
   const notificationTitle = payload.notification.title;
   const notificationBody = payload.notification.body;
   const notificationIcon = payload.notification.icon || '/icon.png'; // Default to '/icon.png'
@@ -34,5 +40,14 @@ messaging.onBackgroundMessage((payload) => {
     icon: notificationIcon,
   };
 
+  // Mark notification as shown
+  isNotificationVisible = true;
+
+  // Show the notification
   self.registration.showNotification(notificationTitle, notificationOptions);
+
+  // Reset notification flag after a delay to allow next notifications
+  setTimeout(() => {
+    isNotificationVisible = false;
+  }, 5000);  // Adjust the time delay if needed
 });

@@ -2,22 +2,22 @@
   <q-layout>
     <q-header elevated>
       <q-toolbar>
-        <q-toolbar-title> /* title and logo of page */
-          <q-img src="~/src/assets/logo.png.jpg" class="navbar-img q-mt-xs" />
+        <q-toolbar-title>
+          <q-img src="~/src/assets/logo.png.jpg" class="navbar-img q-mt-xs" /> 
           Blogging Page 
         </q-toolbar-title>
 
-          /* Dialog button for Settings */
-        <q-btn flat icon="more_vert" @click="dialogVisible = true" />
+          
+        <q-btn flat icon="more_vert" @click="dialogVisible = true" /> 
         
          <q-dialog v-model="dialogVisible" persistent>
           <q-card>
             <q-card-section>
-              <div class="text-h6">Settings</div> /*dialog header */
+              <div class="text-h6">Settings</div>
             </q-card-section>
 
             <q-list bordered>
-              <q-item clickable v-ripple to="/" @click="dialogVisible = false"> /*navigation list items */
+              <q-item clickable v-ripple to="/" @click="dialogVisible = false"> 
                 <q-item-section>Home</q-item-section>
               </q-item>
               <q-item clickable v-ripple to="/about" @click="dialogVisible = false">
@@ -31,14 +31,14 @@
               </q-item>
             </q-list>
 
-            <q-card-actions align="right"> /*close button for dialog */
+            <q-card-actions align="right"> 
               <q-btn flat label="Close" color="primary" v-close-popup />
             </q-card-actions>
           </q-card>
         </q-dialog>
       </q-toolbar>
     </q-header>
-/*main page content */
+
     <q-page class="flex flex-center">
       <div class="col-12 col-md-4 col-lg-4 q-pa-md login-container">
         <q-img src="~/src/assets/logo.png.jpg" class="q-mt-lg image "></q-img>
