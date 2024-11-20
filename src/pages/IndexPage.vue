@@ -184,16 +184,16 @@ const validatePassword = () => {
   }
 };
 
-// Variable to track admin login state
-const isAdminLoggedIn = ref(false); // Initially false, changes after successful admin login
-const selectedOrganization = ref(''); // Holds selected organization
+// // Variable to track admin login state
+// const isAdminLoggedIn = ref(false); // Initially false, changes after successful admin login
+// const selectedOrganization = ref(''); // Holds selected organization
 
-// Organizations for the dropdown
-const organizationOptions = [
-  { label: 'Doctors', value: 'doctors' },
-  { label: 'Nurses', value: 'nurses' },
-  { label: 'Physicians', value: 'physicians' },
-];
+// // Organizations for the dropdown
+// const organizationOptions = [
+//   { label: 'Doctors', value: 'doctors' },
+//   { label: 'Nurses', value: 'nurses' },
+//   { label: 'Physicians', value: 'physicians' },
+// ];
 
 // Function to submit the login form
 const submitLogin = () => {
@@ -207,7 +207,7 @@ const submitLogin = () => {
   if (loginType.value === 'admin') {
     // Admin login successful, set the flag to true
     isAdminLoggedIn.value = true;
-    router.push('/admin-dashboard'); // Redirect to the admin dashboard
+    router.push('/ErrorNotFound'); // Redirect to the admin dashboard
   } else {
     router.push('/home');  // Redirect to user home page
   }
