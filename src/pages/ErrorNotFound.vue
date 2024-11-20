@@ -6,7 +6,7 @@
       </div>
 
       <div class="text-h2" style="opacity:.4">
-        You can now check our blogs
+        <!-- You can now check our blogs -->
       </div>
 
       <q-btn
@@ -23,8 +23,8 @@
   </div>
 </template>
 
-<script setup>
-defineOptions({
-  name: 'ErrorNotFound'
-});
+// <script setup>
+// defineOptions({
+//   name: 'ErrorNotFound'
+// });
 </script>

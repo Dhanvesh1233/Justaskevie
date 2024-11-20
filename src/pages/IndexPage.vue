@@ -7,10 +7,9 @@
           Blogging Page 
         </q-toolbar-title>
 
-          
         <q-btn flat icon="more_vert" @click="dialogVisible = true" /> 
         
-         <q-dialog v-model="dialogVisible" persistent>
+        <q-dialog v-model="dialogVisible" persistent>
           <q-card>
             <q-card-section>
               <div class="text-h6">Settings</div>
@@ -55,6 +54,7 @@
         />
 
         <div class="column">
+          <!-- Input for email -->
           <q-input
             outline
             label="Enter email*"
@@ -68,13 +68,14 @@
             </template>
           </q-input>
 
+          <!-- Input for password -->
           <q-input 
             outline
             label="Enter password*"
             v-model="form.password.value"
             :error="form.password.error"
-            :error-message="form.password.msg"
-            :type="showPassword ? 'text' : 'password'"
+            :error-message="form.password.msg"    
+            :type="showPassword ? 'text' : 'password'" 
             @blur="validatePassword"
           >
             <template v-slot:prepend>
@@ -98,14 +99,25 @@
             :size="$q.screen.gt.sm ? 'lg' : 'md'"
           />
         </div>
+
+        <!-- Organization Dropdown (only shown after successful admin login) -->
+        <div v-if="isAdminLoggedIn">
+          <q-select
+            filled
+            v-model="selectedOrganization"
+            :options="organizationOptions"
+            label="Select Organization"
+            class="q-mt-md"
+          />
+        </div>
       </div>
     </q-page>
   </q-layout>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref } from 'vue';     // Import ref from Vue to create reactive variables
+import { useRouter } from 'vue-router';     // Import the router to navigate to different pages
 
 const router = useRouter();
 const dialogVisible = ref(false);
@@ -116,6 +128,7 @@ const loginOptions = [
   { label: 'Admin Login', value: 'admin' },
 ];
 
+// Define a reactive form object to hold the email and password fields, and error state
 const form = ref({
   email: {
     value: '',
@@ -131,12 +144,14 @@ const form = ref({
   },
 });
 
+// Boolean to toggle password visibility
 const showPassword = ref(false);
-
+// Function to toggle the visibility of the password
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
 };
 
+// Email validation function
 const validateEmail = () => {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const email = form.value.email.value;
@@ -153,6 +168,7 @@ const validateEmail = () => {
   }
 };
 
+// Password validation function
 const validatePassword = () => {
   const password = form.value.password.value;
 
@@ -168,6 +184,18 @@ const validatePassword = () => {
   }
 };
 
+// Variable to track admin login state
+const isAdminLoggedIn = ref(false); // Initially false, changes after successful admin login
+const selectedOrganization = ref(''); // Holds selected organization
+
+// Organizations for the dropdown
+const organizationOptions = [
+  { label: 'Doctors', value: 'doctors' },
+  { label: 'Nurses', value: 'nurses' },
+  { label: 'Physicians', value: 'physicians' },
+];
+
+// Function to submit the login form
 const submitLogin = () => {
   validateEmail();
   validatePassword();
@@ -177,11 +205,11 @@ const submitLogin = () => {
   }
 
   if (loginType.value === 'admin') {
-    
-    router.push('/admin-dashboard');  /* if admin login*/
+    // Admin login successful, set the flag to true
+    isAdminLoggedIn.value = true;
+    router.push('/admin-dashboard'); // Redirect to the admin dashboard
   } else {
-    
-    router.push('/home');  /* if user login*/
+    router.push('/home');  // Redirect to user home page
   }
 };
 </script>
